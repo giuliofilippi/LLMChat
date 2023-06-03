@@ -2,4 +2,4 @@ from django.shortcuts import render
 
 # Create your views here.
 def my_view(request):
-    return render(request, 'templates/my_template.html')
+    return render(request, 'my_template.html')
