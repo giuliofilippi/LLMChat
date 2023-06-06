@@ -10,7 +10,7 @@ from .config import (model_name_1,
 def _generate(model, tokenizer, input_text):
     tokens = tokenizer(input_text, return_tensors="pt")
     tokens_out = model.generate(**tokens, max_new_tokens=200)
-    output_text = model(input_text, max_length=512, do_sample=True)[0]['generated_text']
+    output_text = tokenizer.batch_decode(tokens_out, skip_special_tokens=True)
     return output_text
 
 # Generate text from model, tokenizer, and prompt

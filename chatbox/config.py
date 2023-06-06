@@ -1,9 +1,9 @@
 from transformers import (AutoTokenizer, 
                           AutoModel,
                           AutoModelForSeq2SeqLM,
-                          BartConfig)
+                          BartConfig,
+                          pipeline)
 import torch
-from transformers import pipeline
 
 # device
 device = "cuda" if torch.cuda.is_available() else "cpu"
@@ -40,8 +40,12 @@ def _load_model(model_name):
     
 # new load model
 def load_model(model_name):
-    model = pipeline('text-generation', model = model_name)
-    return model
+    if model_name == "MBZUAI/LaMini-GPT-1.5B":
+        return pipeline('text-generation', model = model_name)
+    elif model_name == "MBZUAI/LaMini-Flan-T5-783M":
+        return pipeline('text2text-generation', model = model_name)
+    else:
+        raise ValueError("Model not found for model: " + model_name)
 
 # models and tokenizers
 model_1 = load_model(model_name_1)
