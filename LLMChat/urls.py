@@ -19,5 +19,5 @@ from django.urls import path
 from chatbox import views
 
 urlpatterns = [
-    path('', views.my_view, name='my_view'),
+    path('', views.generate_output, name='generate_output'),
 ]

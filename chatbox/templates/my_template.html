@@ -32,18 +32,26 @@
             height: calc(100% - 100px); /* Adjust the value to leave space for other elements */
             width: 100%;
         }
+
+        /* Position the generate button to the right */
+        .generate-button {
+            display: flex;
+            justify-content: flex-end;
+        }
     </style>
 </head>
 <body>
     <div class="form-container">
         <div class="input-container">
-            <form method="POST">
+            <form method="POST" action="{% url 'generate_output' %}">
                 {% csrf_token %}
                 <label for="input_text">Input Text:</label>
                 <br>
                 <input type="text" name="input_text" id="input_text" placeholder="Enter text">
                 <br><br>
                 <input type="submit" value="Submit">
+                <input  type="submit" name="generate_button" value="Generate">
+
             </form>
         </div>
         <textarea rows="5" cols="50" name="output_text" readonly class="output-textarea">{{ output }}</textarea>

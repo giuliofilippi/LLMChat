@@ -37,7 +37,7 @@ def conversation(model_name_1, model_name_2, initial_prompt=None, max_iter=20):
         print("Model 2:", initial_prompt)
 
 # Test
-model_name_1 = 'google/flan-t5-base'
-model_name_2 = 'google/flan-t5-small'
-initial_prompt = 'what is your name?'
-conversation(model_name_1, model_name_2, initial_prompt=initial_prompt, max_iter=6)
+# model_name_1 = 'google/flan-t5-base'
+# model_name_2 = 'google/flan-t5-small'
+# initial_prompt = 'what is your name?'
+# conversation(model_name_1, model_name_2, initial_prompt=initial_prompt, max_iter=6)
