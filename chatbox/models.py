@@ -4,7 +4,7 @@ from .config import model_1, tokenizer_1, model_2, tokenizer_2
 # Generate text from model, tokenizer, and prompt
 def generate(model, tokenizer, input_text):
     tokens = tokenizer(input_text, return_tensors="pt")
-    tokens_out = model.generate(**tokens, max_new_tokens=100)
+    tokens_out = model.generate(**tokens, max_new_tokens=200)
     output_text = tokenizer.batch_decode(tokens_out, skip_special_tokens=True)
     return output_text
 
@@ -15,5 +15,5 @@ def new_output(output):
     new_model = 'Model 2' if last_model == 'Model 1' else 'Model 1'
     model = model_1 if new_model == 'Model 1' else model_2
     tokenizer = tokenizer_1 if new_model == 'Model 1' else tokenizer_2
-    input_text = last_message
+    input_text = last_message + '. Argue with me.'
     return  new_model + ': ' + generate(model, tokenizer, input_text)[0]
