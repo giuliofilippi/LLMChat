@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from .models import new_output
+from .config import model_name_1
 
 # generate output
 def generate_output(request):
@@ -9,7 +10,7 @@ def generate_output(request):
         if 'generate_button' in request.POST:
             updated_output = output + '\n' + '\n' + new_output(output)
         else:
-            updated_output = 'Model 1: ' + input_text
+            updated_output = model_name_1 + ': ' + input_text
     else:
         updated_output = ''
 
