@@ -1,10 +1,10 @@
 from django.db import models
 from .config import (model_name_1, 
                      model_1, 
-                     tokenizer_1, 
                      model_name_2, 
-                     model_2, 
-                     tokenizer_2)
+                     model_2)
+tokenizer_1 = None
+tokenizer_2 = None
 
 # Generate text from model, tokenizer, and prompt
 def _generate(model, tokenizer, input_text):
@@ -32,12 +32,25 @@ def find_last_occurrence(text, substring1, substring2):
     else:
         return substring1 if index1 > index2 else substring2
 
-# new output function
-def new_output(output):
+# output function
+def _new_output(output):
     last_message = output.split(': ')[-1]
     last_model = find_last_occurrence(output, model_name_1, model_name_2)
     new_model = model_name_2 if last_model == model_name_1 else model_name_1
     model = model_1 if new_model == model_name_1 else model_2
     tokenizer = tokenizer_1 if new_model == model_name_1 else tokenizer_2
     input_text = last_message + '. Expand upon these thoughts and change the subject slightly.'
-    return  new_model + ': ' + generate(model, tokenizer, input_text)[0]
+    return  new_model + ': ' + _generate(model, tokenizer, input_text)[0]
+
+# new output function
+def new_output(output):
+    last_message = output.split(': ')[-1]
+    last_model = find_last_occurrence(output, model_name_1, model_name_2)
+    new_model = model_name_2 if last_model == model_name_1 else model_name_1
+    model = model_1 if new_model == model_name_1 else model_2
+    if model == model_1:
+        input_text = last_message + '. Expand upon these thoughts and change the subject slightly.'
+    if model == model_2:
+        instruction = last_message + "Expand upon the following thoughts and change the subject slightly."
+        input_text = f"Below is an instruction that describes a task. Write a response that appropriately completes the request.\n\n### Instruction:\n{instruction}\n\n### Response:"
+    return  new_model + ': ' + generate(model, input_text)[0]
