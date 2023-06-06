@@ -7,5 +7,8 @@ Select any models of your choice within the configuration file, then make them c
 
 
 
-# Example
-Consider a "MBZUAI/LaMini-Flan-T5-783M" vs "MBZUAI/LaMini-Flan-T5-783M" chat. We chose these models because they are relatively small, and therefore can run locally on CPU in reasonable time. If you have GPU, feel free to load bigger models!
+# Examples
+We chose to create chats between models that are relatively small, and therefore can run locally on CPU in reasonable time. If you have GPU, feel free to load bigger models!
+
+
+<img width="357" alt="Screen Shot 2023-06-06 at 16 16 16" src="https://github.com/giuliofilippi/LLMChat/assets/54779477/6334d5b7-0cfa-4fec-b092-c72deb2db228">
