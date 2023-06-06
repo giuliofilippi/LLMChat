@@ -15,5 +15,5 @@ def new_output(output):
     new_model = 'Model 2' if last_model == 'Model 1' else 'Model 1'
     model = model_1 if new_model == 'Model 1' else model_2
     tokenizer = tokenizer_1 if new_model == 'Model 1' else tokenizer_2
-    input_text = last_message + '. Teach me something vaguely related to my previous sentence.'
+    input_text = last_message + '. Open up the conversation further.'
     return  new_model + ': ' + generate(model, tokenizer, input_text)[0]
