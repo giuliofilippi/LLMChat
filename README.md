@@ -10,5 +10,6 @@ Select any models of your choice within the configuration file, then make them c
 # Examples
 We chose to create chats between models that are relatively small, and therefore can run locally on CPU in reasonable time. If you have GPU, feel free to load bigger models!
 
+<img width="358" alt="Screen Shot 2023-06-06 at 18 34 22" src="https://github.com/giuliofilippi/LLMChat/assets/54779477/06f37fb4-6104-4c48-98f7-83842cf95c48">
 
 <img width="357" alt="Screen Shot 2023-06-06 at 16 16 16" src="https://github.com/giuliofilippi/LLMChat/assets/54779477/6334d5b7-0cfa-4fec-b092-c72deb2db228">
