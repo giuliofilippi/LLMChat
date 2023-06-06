@@ -10,6 +10,7 @@
             display: flex;
             justify-content: center;
             align-items: flex-start;
+            background-color: #f0f7fb; /* Light blue background color */
         }
 
         /* Make the form container full height */
@@ -29,14 +30,48 @@
 
         /* Make the output text box span down to the bottom */
         .output-textarea {
-            height: calc(100% - 100px); /* Adjust the value to leave space for other elements */
+            height: calc(100vh - 180px); /* Adjust the value to leave space for other elements */
             width: 100%;
+            resize: none; /* Disable textarea resizing */
+            padding: 10px;
+            border: none;
+            background-color: #fff; /* White background color */
+            color: #333; /* Dark text color */
+            font-family: Arial, sans-serif;
         }
 
         /* Position the generate button to the right */
         .generate-button {
             display: flex;
             justify-content: flex-end;
+        }
+
+        /* Styling for form labels and inputs */
+        label {
+            font-weight: bold;
+            font-family: Arial, sans-serif;
+            color: #333; /* Dark text color */
+        }
+
+        input[type="text"] {
+            width: 300px;
+            padding: 8px;
+            border: 1px solid #ccc; /* Light gray border */
+            border-radius: 4px;
+        }
+
+        input[type="submit"] {
+            padding: 8px 16px;
+            border: none;
+            border-radius: 4px;
+            background-color: #2196f3; /* Blue button color */
+            color: #fff; /* White text color */
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #0d8ef8; /* Darker blue hover color */
         }
     </style>
 </head>
@@ -52,10 +87,9 @@
                 <input type="submit" value="Submit">
                 <input  type="submit" name="generate_button" value="Generate">
                 <br><br>
-                <textarea rows="100" cols="50" name="output_text">{{ output }}</textarea>
+                <textarea rows="10" cols="50" name="output_text" class="output-textarea">{{ output }}</textarea>
             </form>
         </div>
-
     </div>
 </body>
 </html>
