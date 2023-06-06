@@ -2,15 +2,51 @@
 <html>
 <head>
     <title>My Webpage</title>
+    <style>
+        /* Center the form vertically */
+        html, body {
+            height: 100%;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+        }
+
+        /* Make the form container full height */
+        .form-container {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            align-items: center;
+            justify-content: flex-start;
+            margin-top: 20px; /* Adjust the margin-top value as needed */
+        }
+
+        /* Adjust the height of the input container */
+        .input-container {
+            margin-bottom: 20px;
+        }
+
+        /* Make the output text box span down to the bottom */
+        .output-textarea {
+            height: calc(100% - 100px); /* Adjust the value to leave space for other elements */
+            width: 100%;
+        }
+    </style>
 </head>
 <body>
-    <form method="POST">
-        {% csrf_token %}
-        <input type="text" name="input_text" placeholder="Enter text">
-        <br><br>
-        <textarea rows="5" cols="50" name="output_text" readonly>{{ output }}</textarea>
-        <br><br>
-        <input type="submit" value="Submit">
-    </form>
+    <div class="form-container">
+        <div class="input-container">
+            <form method="POST">
+                {% csrf_token %}
+                <label for="input_text">Input Text:</label>
+                <br>
+                <input type="text" name="input_text" id="input_text" placeholder="Enter text">
+                <br><br>
+                <input type="submit" value="Submit">
+            </form>
+        </div>
+        <textarea rows="5" cols="50" name="output_text" readonly class="output-textarea">{{ output }}</textarea>
+    </div>
 </body>
 </html>
