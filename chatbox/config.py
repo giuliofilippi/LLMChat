@@ -1,7 +1,7 @@
 from transformers import AutoTokenizer, AutoModelForSeq2SeqLM
 
 # Choose model name from https://huggingface.co/models?filter=flax&pipeline_tag=translation
-model_name_1 = "google/flan-t5-base"
+model_name_1 = "MBZUAI/LaMini-Flan-T5-783M"
 model_name_2 = "MBZUAI/LaMini-Flan-T5-783M"
 
 # Load tokenizer of model
