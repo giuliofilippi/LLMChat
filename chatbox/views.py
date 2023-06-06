@@ -6,7 +6,7 @@ def generate_output(request):
     if request.method == 'POST':
         input_text = request.POST.get('input_text')
         output = request.POST.get('output_text')
-        if 'generate_button' in request.POST:  # Check if the "Generate" button was clicked
+        if 'generate_button' in request.POST:
             updated_output = output + '\n' + '\n' + new_output(output)
         else:
             updated_output = 'Model 1: ' + input_text
